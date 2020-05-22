@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}/{{xixi}}</h1>
-    <slot></slot>
+    <div @click="test">test</div>
+    <slot name="hhh"></slot>
+    <slot>1</slot>
   </div>
 </template>
 
@@ -9,13 +11,27 @@
 export default {
   name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
+    dom:Object
   },
   data() {
       return {
           xixi:24234532535
       }
   },
+   mounted() {
+            
+           this.test();
+    },
+    methods: {
+        test(){
+            const h = this.$createElement;
+            this.$slots.hhh = h('div',{},'哈哈哈哈');
+            this.$slots.default = h(this.dom);
+            console.log("created",this);
+            this.$forceUpdate()
+        }
+    },
 };
 </script>
 
