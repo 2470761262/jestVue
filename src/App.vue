@@ -10,12 +10,14 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import test2 from "./components/test2.vue";
-import sorry2 from './components/sorry2.vue'
+import sorry2 from './components/sorry2.vue';
+import todoList from './containers/TodoList/TodoList';
 export default {
   name: "App",
   components: {
     HelloWorld,
-    test2
+    test2,
+    todoList
   },
   data() {
       return {
@@ -25,7 +27,7 @@ export default {
   },
   mounted() {
       const h = this.$createElement;
-      this.$sorry(h('div',{},'我是传递过来的哦'));
+     this.$sorry(h('div',{},'我是传递过来的哦'));
       setTimeout(()=>{
           this.sdsd = true;
       },1000)

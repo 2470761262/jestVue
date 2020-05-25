@@ -20,16 +20,20 @@ export default {
       }
   },
    mounted() {
-            
-           this.test();
+            setTimeout(() => {
+                this.test();
+            }, 500);
+         
     },
     methods: {
         test(){
             const h = this.$createElement;
-            this.$slots.hhh = h('div',{},'哈哈哈哈');
-            this.$slots.default = h(this.dom);
+          //  this.$slots.hhh = h('div',{},'哈哈哈哈');
+
+            this.$set(this.$slots,'default', h('div',{},'哈哈哈哈'))// h(this.dom))
+            //this.$slots.default = h(this.dom);
             console.log("created",this);
-            this.$forceUpdate()
+            //this.$forceUpdate()
         }
     },
 };
