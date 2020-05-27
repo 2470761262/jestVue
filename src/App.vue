@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" :dom="dom" v-if="sdsd"/>
+    <todoList></todoList>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" :dom="dom" v-if="sdsd"/>
     <test2></test2>
       ------------------
-    <div></div>
+    <div></div> -->
   </div>
 </template>
 
@@ -26,15 +27,19 @@ export default {
       }
   },
   mounted() {
-      const h = this.$createElement;
-     this.$sorry(h('div',{},'我是传递过来的哦'));
-      setTimeout(()=>{
-          this.sdsd = true;
-      },1000)
+    //   const h = this.$createElement;
+    //  this.$sorry(h('div',{},'我是传递过来的哦'));
+    //   setTimeout(()=>{
+    //       this.sdsd = true;
+    //   },1000)
   },
 };
 </script>
 
 <style lang="less">
+*{
+  padding: 0;
+  margin: 0;
+}
 
 </style>

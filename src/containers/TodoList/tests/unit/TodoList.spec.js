@@ -1,10 +1,30 @@
 import { shallowMount } from "@vue/test-utils";
 //import HelloWorld from "@/components/HelloWorld.vue";
 import TodoList from '@/containers/TodoList/TodoList';
+import Header  from '@/containers/TodoList/components/Header';
 
-describe('TodoList.vue' ,()=>{
-    it(' 组件渲染正常',()=>{
+describe('TodoList.vue ' ,()=>{
+    it(' 初始化 undolist 应该是空',()=>{
         const wrapper = shallowMount(TodoList);
+        const undolist = wrapper.vm.$data.undoList;
+        expect(undolist).toEqual([]);
+    })
+
+    it('TodoList 执行addItem 的时候 会增加一个内容',()=>{
+        const wrapper = shallowMount(TodoList);
+        wrapper.vm.addUndoItem('Sorry');
+        const undolist = wrapper.vm.$data.undoList;
+        expect(undolist.length).toBe(1);
+        expect(undolist.length).toEqual(1);
+    })
+    it('TodoList 监听Header 的add事件 会增加一个内容',()=>{
+        const wrapper = shallowMount(TodoList);
+        const header =  wrapper.find(Header);
+       // wrapper.vm.addUndoItem('Sorry');
+       header.vm.$emit('add','sorry');
+        const undolist = wrapper.vm.$data.undoList;
+        expect(undolist.length).toBe(1);
+        expect(undolist).toEqual(['sorry']);
     })
 })
 
