@@ -45,6 +45,7 @@ describe("header.vue", () => {
     expect(wrapper.vm.$data.inputValue).toBe("");
   });
 
+  
   it("header 样式发生变化,做提示", () => {
     const wrapper = shallowMount(header);
     expect(wrapper).toMatchInlineSnapshot(`
